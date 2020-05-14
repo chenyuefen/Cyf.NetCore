@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cyf.Core.Utility\Cyf.Core.Utility.csproj" />
+    <ProjectReference Include="..\Cyf.NetCore.Interface\Cyf.NetCore.Interface.csproj" />
+  </ItemGroup>
+
+</Project>
