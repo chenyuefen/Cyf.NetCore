@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ruanmou.NetCore2.MVC6.Unitility.Filters
+namespace Cyf.NetCore2.MVC6.Unitility.Filters
 {
     /// <summary>
     /// 自定义的资源Filter

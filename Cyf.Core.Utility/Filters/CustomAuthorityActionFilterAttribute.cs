@@ -6,10 +6,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Authorization;
-using Ruanmou.NetCore2.MVC6.Models;
+using Cyf.NetCore2.MVC6.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Ruanmou.Core.Utility.Filters
+namespace Cyf.Core.Utility.Filters
 {
     /// <summary>
     /// Action的Filter,但是用来检测权限

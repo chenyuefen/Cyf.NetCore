@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Ruanmou.NetCore2.MVC6.Unitility;
+using Cyf.NetCore2.MVC6.Unitility;
 
-namespace Ruanmou.Core.Utility.Filters
+namespace Cyf.Core.Utility.Filters
 {
     /// <summary>
     /// 异常处理的Filter

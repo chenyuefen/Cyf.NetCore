@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
 using Cyf.NetCore.Middlewares;
+using Cyf.NetCore.Utility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,6 +31,15 @@ namespace Cyf.NetCore
                 .AddRazorRuntimeCompilation();
         }
 
+
+        /// <summary>
+        /// autofac
+        /// </summary>
+        /// <param name="containerBuilder"></param>
+        public void ConfigureContainer(ContainerBuilder containerBuilder)
+        {
+            containerBuilder.RegisterModule<CustomAutofacModule>();
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

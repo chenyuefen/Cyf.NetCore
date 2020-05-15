@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Authorization;
 
-namespace Ruanmou.Core.Utility.Filters
+namespace Cyf.Core.Utility.Filters
 {
     /// <summary>
     /// Action的Filter

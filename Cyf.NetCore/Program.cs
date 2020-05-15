@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -29,6 +30,12 @@ namespace Cyf.NetCore
     /// 默认情况，管道只有一个404
     /// 然后你可以增加请求的处理(UseEndPoint)---这就是以前handler，只包含业务处理
     /// 其他的就是中间件middleware
+    /// 
+    /// 
+    /// *********** 配置Autofac（AOP,IOC）框架 ***********
+    /// a nuget--可以参考依赖项里面的autofac相关（3个类库）
+    /// b [Program][CreateHostBuilder]下增加UseServiceProviderFactory扩展
+    /// c ConfigureContainer(ContainerBuilder containerBuilder)
     /// </summary>
     public class Program
     {
@@ -42,6 +49,7 @@ namespace Cyf.NetCore
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                })
+            .UseServiceProviderFactory(new AutofacServiceProviderFactory());
     }
 }

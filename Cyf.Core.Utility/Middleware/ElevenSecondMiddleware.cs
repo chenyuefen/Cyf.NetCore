@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ruanmou.Core.Utility.Middleware
+namespace Cyf.Core.Utility.Middleware
 {
     public class ElevenSecondMiddleware
     {

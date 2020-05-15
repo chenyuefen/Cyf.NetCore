@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
-using Ruanmou.NetCore.Interface;
+using Cyf.NetCore.Interface;
 using System;
 
-namespace Ruanmou.NetCore.Servcie
+namespace Cyf.NetCore.Servcie
 {
     public class TestServiceB : ITestServiceB
     {

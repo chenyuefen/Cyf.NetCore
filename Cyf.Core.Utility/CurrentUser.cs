@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ruanmou.NetCore2.MVC6.Models
+namespace Cyf.NetCore2.MVC6.Models
 {
     public class CurrentUser
     {

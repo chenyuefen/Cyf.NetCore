@@ -8,7 +8,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ruanmou.Core.Utility.Authentications
+namespace Cyf.Core.Utility.Authentications
 {
     /// <summary>
     /// 自定义的handler

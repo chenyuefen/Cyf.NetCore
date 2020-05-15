@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Ruanmou.Core.Utility.Filters
+namespace Cyf.Core.Utility.Filters
 {
     //public class CustomAuthorityFilter : AuthorizeAttribute
     //{
