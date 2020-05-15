@@ -35,7 +35,7 @@ namespace Cyf.NetCore
     /// *********** 配置Autofac（AOP,IOC）框架 ***********
     /// a nuget--可以参考依赖项里面的autofac相关（3个类库）
     /// b [Program][CreateHostBuilder]下增加UseServiceProviderFactory扩展
-    /// c ConfigureContainer(ContainerBuilder containerBuilder)
+    /// c [Startup]增加ConfigureContainer(ContainerBuilder containerBuilder)方法
     /// </summary>
     public class Program
     {

@@ -77,37 +77,37 @@ namespace Cyf.NetCore
             //};
             //app.Use(middleware);
 
-            app.Use(next =>
-            {
-                System.Diagnostics.Debug.WriteLine("this is Middleware1");
-                return new RequestDelegate(async context =>
-                {
-                    await context.Response.WriteAsync("<h3>This is Middleware1 start</h3>");
-                    await next.Invoke(context);
-                    await context.Response.WriteAsync("<h3>This is Middleware1 end</h3>");
-                });
-            });
+            //app.Use(next =>
+            //{
+            //    System.Diagnostics.Debug.WriteLine("this is Middleware1");
+            //    return new RequestDelegate(async context =>
+            //    {
+            //        await context.Response.WriteAsync("<h3>This is Middleware1 start</h3>");
+            //        await next.Invoke(context);
+            //        await context.Response.WriteAsync("<h3>This is Middleware1 end</h3>");
+            //    });
+            //});
 
-            app.Use(next =>
-            {
-                System.Diagnostics.Debug.WriteLine("this is Middleware2");
-                return new RequestDelegate(async context =>
-                {
-                    await context.Response.WriteAsync("<h3>This is Middleware2 start</h3>");
-                    await next.Invoke(context);
-                    await context.Response.WriteAsync("<h3>This is Middleware2 end</h3>");
-                });
-            });
-            app.Use(next =>
-            {
-                System.Diagnostics.Debug.WriteLine("this is Middleware3");
-                return new RequestDelegate(async context =>
-                {
-                    await context.Response.WriteAsync("<h3>This is Middleware3 start</h3>");
-                    await next.Invoke(context);//注释掉，表示不再往下走
-                    await context.Response.WriteAsync("<h3>This is Middleware3 end</h3>");
-                });
-            });
+            //app.Use(next =>
+            //{
+            //    System.Diagnostics.Debug.WriteLine("this is Middleware2");
+            //    return new RequestDelegate(async context =>
+            //    {
+            //        await context.Response.WriteAsync("<h3>This is Middleware2 start</h3>");
+            //        await next.Invoke(context);
+            //        await context.Response.WriteAsync("<h3>This is Middleware2 end</h3>");
+            //    });
+            //});
+            //app.Use(next =>
+            //{
+            //    System.Diagnostics.Debug.WriteLine("this is Middleware3");
+            //    return new RequestDelegate(async context =>
+            //    {
+            //        await context.Response.WriteAsync("<h3>This is Middleware3 start</h3>");
+            //        await next.Invoke(context);//注释掉，表示不再往下走
+            //        await context.Response.WriteAsync("<h3>This is Middleware3 end</h3>");
+            //    });
+            //});
 
             ////1 Run 终结式  只是执行，没有去调用Next  
             ////一般作为终结点
