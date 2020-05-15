@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyf.NetCore", "Cyf.NetCore\Cyf.NetCore.csproj", "{1491DB00-398A-403B-9936-F8E9871B83D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyf.NetCore", "Cyf.NetCore\Cyf.NetCore.csproj", "{1491DB00-398A-403B-9936-F8E9871B83D5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyf.Core.Utility", "Cyf.Core.Utility\Cyf.Core.Utility.csproj", "{FD46798C-E9C9-436E-B12A-A1589DD0CB09}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyf.NetCore.Interface", "Cyf.NetCore.Interface\Cyf.NetCore.Interface.csproj", "{72C71561-ADE5-42DA-98FD-59808A2EFB7C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyf.NetCore.Service", "Cyf.NetCore.Service\Cyf.NetCore.Service.csproj", "{74D2C4A2-BFC3-4964-BEB2-10B725F147B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyf.EntityFramework.Model", "Cyf.EntityFramework.Model\Cyf.EntityFramework.Model.csproj", "{CCE9F353-FBCE-4FD9-951D-0FC25D0B9C8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{74D2C4A2-BFC3-4964-BEB2-10B725F147B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74D2C4A2-BFC3-4964-BEB2-10B725F147B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74D2C4A2-BFC3-4964-BEB2-10B725F147B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCE9F353-FBCE-4FD9-951D-0FC25D0B9C8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCE9F353-FBCE-4FD9-951D-0FC25D0B9C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCE9F353-FBCE-4FD9-951D-0FC25D0B9C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCE9F353-FBCE-4FD9-951D-0FC25D0B9C8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
