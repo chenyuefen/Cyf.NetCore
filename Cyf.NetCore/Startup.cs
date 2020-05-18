@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
+using Cyf.EF.MSSQL.Model;
 using Cyf.EF.MYSQL.Model;
 using Cyf.NetCore.Middlewares;
 using Cyf.NetCore.Utility;
@@ -30,6 +31,7 @@ namespace Cyf.NetCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<CyfMYSQLContext>(options => options.UseMySQL(Configuration.GetConnectionString("CyfMYSQLConnection")));
+            services.AddDbContext<CyfMSSQLContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CyfMSSQLConnection")));
             services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation();
         }

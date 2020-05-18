@@ -99,10 +99,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\acount.cs" />
-    <Compile Include="Models\company.cs" />
-    <Compile Include="Models\employee.cs" />
-    <Compile Include="CyfMYSQLContext.cs" />
+    <Compile Include="Mssql\CyfMSSQLContext.cs" />
+    <Compile Include="Mssql\User.cs" />
+    <Compile Include="Mysql\Models\acount.cs" />
+    <Compile Include="Mysql\Models\company.cs" />
+    <Compile Include="Mysql\Models\employee.cs" />
+    <Compile Include="Mysql\CyfMYSQLContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
