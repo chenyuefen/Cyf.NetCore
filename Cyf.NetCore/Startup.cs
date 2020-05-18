@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
+using Cyf.EF.MYSQL.Model;
 using Cyf.NetCore.Middlewares;
 using Cyf.NetCore.Utility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,10 +29,10 @@ namespace Cyf.NetCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<CyfMYSQLContext>(options => options.UseMySQL(Configuration.GetConnectionString("CyfMYSQLConnection")));
             services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation();
         }
-
 
         /// <summary>
         /// autofac
@@ -40,6 +42,7 @@ namespace Cyf.NetCore
         {
             containerBuilder.RegisterModule<CustomAutofacModule>();
         }
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

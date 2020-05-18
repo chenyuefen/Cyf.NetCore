@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cyf.EntityFramework.Model
+namespace Cyf.EF.MSSQL.Model
 {
     public class Class1
     {

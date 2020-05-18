@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Cyf.EF.MYSQL.Model;
 using Cyf.NetCore.Interface;
 using Cyf.NetCore.Utility;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ namespace Cyf.NetCore.Controllers
         #region MyRegion
         private ILoggerFactory _Factory = null;
         private ILogger<SecondController> _logger = null;
+        private CyfMYSQLContext _context = null;
         private ITestServiceA _ITestServiceA = null;
         private ITestServiceB _ITestServiceB = null;
         private ITestServiceC _ITestServiceC = null;
@@ -22,6 +24,7 @@ namespace Cyf.NetCore.Controllers
         public ITestServiceA ITestServiceA { get; set; }
         public SecondController(ILoggerFactory factory,
             ILogger<SecondController> logger,
+            CyfMYSQLContext context,
             ITestServiceA testServiceA,
             ITestServiceB testServiceB,
             ITestServiceC testServiceC,
@@ -35,12 +38,14 @@ namespace Cyf.NetCore.Controllers
             this._ITestServiceC = testServiceC;
             this._ITestServiceD = testServiceD;
             this._IA = a;
+            this._context = context;
         }
         #endregion
 
 
         public IActionResult Index()
         {
+            var users =  _context.employees.Where(x => x.id > 0).ToList();
             this._logger.LogError("这里是ILogger<SecondController> Error");
             this._Factory.CreateLogger<SecondController>().LogError("这里是ILoggerFactory Error");
 
