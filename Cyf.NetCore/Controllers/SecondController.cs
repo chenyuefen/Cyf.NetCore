@@ -16,8 +16,8 @@ namespace Cyf.NetCore.Controllers
         #region MyRegion
         private ILoggerFactory _Factory = null;
         private ILogger<SecondController> _logger = null;
-        private CyfMYSQLContext _mysqlcontext = null;
-        private CyfMSSQLContext _mssqlcontext = null;
+        private CyfMYSQLContext _Mysqlcontext = null;
+        private CyfMSSQLContext _Mssqlcontext = null;
         private ITestServiceA _ITestServiceA = null;
         private ITestServiceB _ITestServiceB = null;
         private ITestServiceC _ITestServiceC = null;
@@ -41,16 +41,16 @@ namespace Cyf.NetCore.Controllers
             this._ITestServiceC = testServiceC;
             this._ITestServiceD = testServiceD;
             this._IA = a;
-            this._mysqlcontext = mysqlcontext;
-            this._mssqlcontext = mssqlcontext;
+            this._Mysqlcontext = mysqlcontext;
+            this._Mssqlcontext = mssqlcontext;
         }
         #endregion
 
 
         public IActionResult Index()
         {
-            var users =  _mysqlcontext.employees.Where(x => x.id > 0).ToList();
-            var users2 =  _mssqlcontext.Users.Where(x => x.Id > 0).ToList();
+            var users =  _Mysqlcontext.employees.Where(x => x.id > 0).ToList();
+            var users2 =  _Mssqlcontext.Users.Where(x => x.Id > 0).ToList();
             this._logger.LogError("这里是ILogger<SecondController> Error");
             this._Factory.CreateLogger<SecondController>().LogError("这里是ILoggerFactory Error");
 
