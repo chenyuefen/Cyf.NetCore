@@ -6,7 +6,9 @@ using Autofac;
 using Cyf.EF.MSSQL.Model;
 using Cyf.EF.MSSQL.Model.Log;
 using Cyf.EF.MYSQL.Model;
+using Cyf.NetCore.Interface;
 using Cyf.NetCore.Middlewares;
+using Cyf.NetCore.Servcie;
 using Cyf.NetCore.Utility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,6 +36,15 @@ namespace Cyf.NetCore
             services.AddDbContext<CyfMYSQLContext>(options => options.UseMySQL(Configuration.GetConnectionString("CyfMYSQLConnection")));
             services.AddDbContext<CyfMSSQLContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CyfMSSQLConnection"))
                                                                      .UseLoggerFactory(new CustomEFLoggerFactory()));
+            #region 系统内置DI  
+
+            //services.AddTransient<ITestServiceA, TestServiceA>();//瞬时生命周期 
+            //services.AddSingleton<ITestServiceB, TestServiceB>();//单例：全容器都是一个
+            //services.AddScoped<ITestServiceC, TestServiceC>();//请求单例：一个请求作用域是一个实例
+
+            #endregion
+
+
             services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation();
         }
