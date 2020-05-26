@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Cyf.Core.Utility.Filters;
 using Cyf.NetCore.Models;
+using Cyf.NetCore2.MVC6.Unitility.Filters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cyf.NetCore.Controllers
@@ -15,8 +17,12 @@ namespace Cyf.NetCore.Controllers
     /// *********** 四种传值方式：ViewData,ViewBag,TempData,Model, TempData有坑***********
     /// tempdata序列化时，只能是基础类型+int集合+字典，不能是自定义类型
     /// </summary>
+    [TypeFilter(typeof(CustomControllerActionFilterAttribute), Order = 2)]
     public class FirstController : Controller
     {
+        [ServiceFilter(typeof(CustomActionFilterAttribute), Order = -1)]//Order排序值  默认是0
+        [CustomResultFilter]
+        [CustomResourceFilter]
         public IActionResult Index(int? id)
         {
             base.ViewData["User1"] = new CurrentUser()

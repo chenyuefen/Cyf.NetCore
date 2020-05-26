@@ -37,6 +37,30 @@ namespace Cyf.NetCore
     /// a nuget--可以参考依赖项里面的autofac相关（3个类库）
     /// b [Program][CreateHostBuilder]下增加UseServiceProviderFactory扩展
     /// c [Startup]增加ConfigureContainer(ContainerBuilder containerBuilder)方法
+    /// 
+    /// 
+    /// *********** Filter过滤器：Action,Result,Exception, Resource ***********
+    ///  Asp.Net Core:Action&Result&Exception
+    ///  
+    /// 全局注册是在ConfigureServices[addmvc][addfilter]完成的
+    ///      
+    /// 全局 控制器  Action 分别注册，执行顺序是
+    /// 全局--控制器--Action--Action执行过程--Action--控制器--全局
+    /// 
+    /// Result就在Action之后
+    /// 
+    /// 特性在编译的时候，会生成metadata，生成IL  必须是确定的，不能是DI提供
+    /// 如果Filter需要注入，那么不能直接标记的
+    /// 1 ServiceFilter   还需要在ConfigService指定一下
+    /// 2 TypeFilter
+    /// 3 全局
+    /// 4 IFilterFactory
+    /// order 小的先执行  默认是0
+    /// 
+    /// AuthorityFilter第一顺序
+    /// ResourceFilter第二顺序
+    /// 【敲黑板】完成后，才会去实例化控制器！！！
+    /// Resource最适合做缓存，可以在最早的时候完成缓存
     /// </summary>
     public class Program
     {

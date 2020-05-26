@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
+using Cyf.Core.Utility.Filters;
 using Cyf.EF.MSSQL.Model;
 using Cyf.EF.MSSQL.Model.Log;
 using Cyf.EF.MYSQL.Model;
@@ -44,6 +45,13 @@ namespace Cyf.NetCore
 
             #endregion
 
+            services.AddMvc(o =>
+            {
+                o.Filters.Add(typeof(CustomExceptionFilterAttribute));
+                o.Filters.Add(typeof(CustomGlobalActionFilterAttribute));
+            });//È«¾Ö×¢²áfilter
+
+            services.AddScoped<CustomActionFilterAttribute>();//¸æËßDI
 
             services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation();
