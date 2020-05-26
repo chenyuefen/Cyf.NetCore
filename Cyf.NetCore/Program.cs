@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac.Extensions.DependencyInjection;
+using Cyf.Core.Utility.Log;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -49,6 +50,9 @@ namespace Cyf.NetCore
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                }).ConfigureLogging((context, loggingBuilder) =>
+                {
+                    Log4Extention.InitLog4(loggingBuilder);
                 })
             .UseServiceProviderFactory(new AutofacServiceProviderFactory());
     }
