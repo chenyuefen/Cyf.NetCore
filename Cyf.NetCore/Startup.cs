@@ -51,7 +51,7 @@ namespace Cyf.NetCore
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-            #region Middleware
+            #region Middleware—中间件
             //app.Run(c => c.Response.WriteAsync("Hello World!"));   
             ////任何请求来了，只是返回个hello world    终结式
             ////所谓Run终结式注册，其实只是一个扩展方法，最终还不是得调用Use方法，
@@ -182,6 +182,20 @@ namespace Cyf.NetCore
             //    await context.Response.WriteAsync("Hello World Use3  Again Again <br/>");
             //});
             #endregion
+
+            #region 配置文件的读取
+            //xml path
+            Console.WriteLine($"option1 = {this.Configuration["Option1"]}");
+            Console.WriteLine($"option2 = {this.Configuration["option2"]}");
+            Console.WriteLine(
+                $"suboption1 = {this.Configuration["subsection:suboption1"]}");
+            Console.WriteLine("Wizards:");
+            Console.Write($"{this.Configuration["wizards:0:Name"]}, ");
+            Console.WriteLine($"age {this.Configuration["wizards:0:Age"]}");
+            Console.Write($"{this.Configuration["wizards:1:Name"]}, ");
+            Console.WriteLine($"age {this.Configuration["wizards:1:Age"]}");
+            #endregion
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
