@@ -44,9 +44,36 @@ namespace Cyf.NetCore.Controllers
                    .Select(s => s.Value);
 
                 //根据当前TickCount对服务器个数取模，“随机”取一个机器出来，避免“轮询”的负载均衡策略需要计数加锁问题
-                //1 随机获取 -- 均衡调度
-                var agentService = agentServices.ElementAt(Environment.TickCount % agentServices.Count());
+                //1 随机获取---均衡调度
+                //var agentService = agentServices.ElementAt(Environment.TickCount % agentServices.Count());
 
+                //2 权重--某台服务器厉害点，某台差一点
+                #region MyRegion
+                var serviceWeight = agentServices.Select(s =>
+                {
+                    int weight = 1;//不设置就是1
+                    if (s.Tags != null && s.Tags.Length > 0 && int.TryParse(s.Tags[0], out weight))
+                    {
+                    }
+                    KeyValuePair<AgentService, int> keyValuePair = new KeyValuePair<AgentService, int>(s, weight);
+                    return keyValuePair;//3   5
+                });
+                List<AgentService> serviceList = new List<AgentService>();//总数等于权重的和
+                foreach (var sw in serviceWeight)
+                {
+                    for (int i = 0; i < sw.Value; i++)
+                    {
+                        serviceList.Add(sw.Key);
+                    }
+                }
+                int total = serviceWeight.Sum(s => s.Value);
+                Random random = new Random();
+                int index = random.Next(0, total);//左边闭区间  右边开区间
+                var agentService = serviceList[index];
+                #endregion
+
+                //base.HttpContext.Request.Headers  客户端就可以完成控制
+                //可以根据tag--根据用户ip--等各种因素来做调度
                 msg = $"{agentService.Address},{agentService.ID},{agentService.Service},{agentService.Port}";
                 this._logger.LogWarning(msg);
             }
