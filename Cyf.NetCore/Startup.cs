@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
+using Cyf.Core.Utility.Consul;
 using Cyf.Core.Utility.Filters;
 using Cyf.EF.MSSQL.Model;
 using Cyf.EF.MSSQL.Model.Log;
@@ -243,6 +244,8 @@ namespace Cyf.NetCore
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            this.Configuration.RegistConsul();
         }
     }
 }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace Cyf.NetCore.Controllers
 {
@@ -31,11 +33,31 @@ namespace Cyf.NetCore.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        // GET: api/Values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        #region Identity
+        private IConfiguration _IConfiguration = null;
+        private ILogger<ValuesController> _logger = null;
+        public ValuesController(IConfiguration configuration, ILogger<ValuesController> logger)
         {
-            return new string[] { "value1", "value2" };
+            this._IConfiguration = configuration;
+            this._logger = logger;
+        }
+        #endregion
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            this._logger.LogWarning("ValuesController-Get 执行");
+            return new JsonResult(new
+            {
+                Id = 123,
+                Name = "cwer",
+                IP = this._IConfiguration["ip"],
+                port = this._IConfiguration["port"],
+                urls = this._IConfiguration["urls"],
+                //Remark = this._IConfiguration["Consul:ServcieRemark"],
+                //CurrentPort = this._IConfiguration["Port"],
+                CurrentPath = base.HttpContext.Request.Path
+            });
         }
 
         // GET: api/Values/5
