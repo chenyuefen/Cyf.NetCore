@@ -28,7 +28,7 @@ namespace Cyf.Core.Utility.Consul
                 Name = "apiserviceTest",//服务的名字--将来调用时用的就是这个
                 Address = ip,
                 Port = port,
-                Tags = new string[] { },//可以用来设置权重
+                Tags = new string[] { configuration["weight"] },//可以用来设置权重,调用的时候增加--weight参数
                 Check = new AgentServiceCheck()
                 {
                     DeregisterCriticalServiceAfter = TimeSpan.FromSeconds(5),//服务停止多久后反注册
