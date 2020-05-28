@@ -84,5 +84,54 @@ namespace Cyf.NetCore.Controllers
                 Remark = msg
             });
         }
+
+        [HttpGet]
+        [Route("Invoke")]
+        public IActionResult Invoke()
+        {
+            this._logger.LogWarning("TestController-Invoke 执行");
+            string urlDefault = $"http://apiserviceTest/api/values";//我准备调用一下日志服务
+
+            //http://apiserviceTest/api/values 转换为 http://127.0.0.1:5726/api/values
+            string urlTarget = this.ResolveUrlAsync(urlDefault);
+
+            using (HttpClient httpClient = new HttpClient())
+            {
+                HttpRequestMessage requestMsg = new HttpRequestMessage();
+                //httpClient.DefaultRequestHeaders.Add("key", "value");
+                requestMsg.Method = HttpMethod.Get;
+                requestMsg.RequestUri = new Uri(urlTarget);
+
+                var result = httpClient.SendAsync(requestMsg).Result;
+                return new JsonResult(new
+                {
+                    Id = 123,
+                    Name = "Cyf",
+                    result.StatusCode,
+                    urlTarget,
+                    Content = result.Content.ReadAsStringAsync().Result,
+                });
+            }
+        }
+
+        private string ResolveUrlAsync(string url)
+        {
+            Uri uri = new Uri(url);
+            string serviceName = uri.Host;//apiserviceTest
+            string rootUrl = this.GetServiceAddress(serviceName);
+            return uri.Scheme + "://" + rootUrl + uri.PathAndQuery;
+        }
+
+        private string GetServiceAddress(string serviceName)
+        {
+            using (ConsulClient consulClient = new ConsulClient(c => c.Address = new Uri("http://127.0.0.1:8500")))
+            {
+                Dictionary<string, AgentService> services = consulClient.Agent.Services().Result.Response;
+                var agentServices = services.Where(s => s.Value.Service.Equals(serviceName, StringComparison.CurrentCultureIgnoreCase))
+                   .Select(s => s.Value);
+                var agentService = agentServices.ElementAt(Environment.TickCount % agentServices.Count());
+                return $"{agentService.Address}:{agentService.Port}";
+            }
+        }
     }
 }
