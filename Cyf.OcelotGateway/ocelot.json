@@ -57,8 +57,15 @@
         {
           "Host": "localhost",
           "Port": 5726 //服务端口
-        } //可以多个，自行负载均衡
+        }, //可以多个，自行负载均衡
+        {
+          "Host": "localhost",
+          "Port": 5727 //服务端口
+        }
       ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin" //轮询      LeastConnection-最少连接数的服务器   NoLoadBalance不负载均衡
+      },
       "UpstreamPathTemplate": "/T5726/{url}", //网关地址--url变量   //冲突的还可以加权重Priority
       "UpstreamHttpMethod": [ "Get", "Post" ]
     },
