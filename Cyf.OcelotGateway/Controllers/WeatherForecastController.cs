@@ -7,6 +7,10 @@ using Microsoft.Extensions.Logging;
 
 namespace Cyf.OcelotGateway.Controllers
 {
+    /// <summary>
+    /// 1 引用Ocelot 14的。15以上本机还不适用，某些模块未更新
+    /// 2 
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
