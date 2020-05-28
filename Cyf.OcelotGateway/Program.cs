@@ -21,6 +21,9 @@ namespace Cyf.OcelotGateway
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                }).ConfigureAppConfiguration(cfg =>
+                {
+                    cfg.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
                 });
     }
 }
