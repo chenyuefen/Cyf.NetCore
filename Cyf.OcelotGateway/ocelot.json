@@ -10,6 +10,9 @@
         "Type": "RoundRobin" //轮询      LeastConnection-最少连接数的服务器   NoLoadBalance不负载均衡
       },
       "UseServiceDiscovery": true,
+      "FileCacheOptions": {
+        "TtlSeconds": 10 //缓存 10s  仅对get请求生效，同地址就同结果
+      },
       //"RateLimitOptions": {
       //  "ClientWhitelist": [], //白名单
       //  "EnableRateLimiting": true,
