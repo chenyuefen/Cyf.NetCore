@@ -1,0 +1,93 @@
+﻿ ****************** Step1 启动Consul ******************************
+ Consul环境：
+ https://www.consul.io/downloads.html
+ 下载windows 64bit
+ 安装说明
+ https://blog.csdn.net/zhaokejin521/article/details/78659049
+ 然后
+ Cmd启动  
+ 注意切盘符，路径要对
+ D:\ruanmou\online12\20190903Advanced12Course91Microservice-1\consul\consul agent -dev
+ 然后访问 http://localhost:8500
+ 
+ ************************ Step2 启动多个实例*********************
+ 运行两个WebApi服务起来
+ cd  路径--bin/debugs/3.0
+ dotnet Cyf.NetCore.dll --urls="http://*:5726" --ip="127.0.0.1" --port=5726
+ dotnet Cyf.NetCore.dll --urls="http://*:5727" --ip="127.0.0.1" --port=5727
+ dotnet Cyf.OcelotGateway.dll --urls="http://*:9527" --ip="127.0.0.1" --port=9527
+ 即可查看http://localhost:8500有多个服务和心跳检测了
+
+
+ ********************* 微服务架构 ****************************
+
+
+ ********************* 1、Consul ****************************
+
+
+ 1 微服务架构解析，优缺点、挑战与转变
+ 2 服务实例准备，Consul安装
+ 3 Consul注册，心跳检测，服务发现
+ 
+ 微服务架构专题，基于Core
+ 
+ 命令行参数--AddCommandLine---启动时可以传递参数---然后可以Configuration["name"] 获取一下
+ 
+ 
+ 服务注册与发现
+ a  添加Webapi服务---添加log4net---注入到控制器--记录日志
+ b  命令启动webapi服务---2个实例--不同端口
+ c  准备consul--启动--nuget-consul
+ d  网站启动后需要注册到consul
+ e  添加health-check，健康检查
+ f  在startup去注册下---然后启动多个实例
+ g  去http://localhost:8500查看多个服务被发现和心跳检测 
+
+  ********************* 2、Ocelot+Consul ****************************
+
+ 1 Consul消费者，完成负载均衡
+ 2 基于Ocelot搭建Gateway，完成服务调用
+ 3 Ocelot+Consul整合使用，网关+服务注册发现
+ 4 Ocelot配置解析，熔断-限流等功能实现
+
+ 下面Eleven老师准备给大家写消费者，基于Consul来完成服务调用
+ a 不准备再建个项目做消费者，直接就写在一个项目
+ 
+ 
+ Ocelot:
+ Core-Webapi项目--引入Ocelot---一组中间件---program替换配置文件--增加配置文件--startup去配置--全部换成ocelot---配置文件完成配置--即可完成网关访问
+ 
+ 
+********************* 3、Ocelot配置进阶，缓存-限流-熔断-聚合等功能 ****************************
+
+ 1 Ocelot配置进阶，缓存-限流-熔断-聚合等功能实现
+ 2 解读IdentityServer4验证中心，OAuth-OpenID
+ 3 分布式事务解析，CAP&Base，多模式解析
+ 4 Docker&K8S快速发布部署
+ 
+ 完成了Ocelot+Consul整合
+ a  恢复环境--Consul+2个服务实例--测试调用
+ b  ocelot启动，结合配置文件，结合Consul 完成请求转发以及服务发现
+ 
+ 网关不仅是做请求的转发--中间层，我的地盘听我的，我给你show一下
+ a  缓存---配置下就可以了
+ b  限流---限制单位时间内请求的数量--反爬虫&秒杀
+ c  熔断---家里保险丝过载就会熔断，全停，可以保护别人家正常的电流
+           A股，出现了超出平常的异动，直接停掉全部交易
+           达成某些条件后，接口将暂时不再提供服务
+    nuget--polly---AddPolly()
+ d  请求合并---上端请求一下，网关会请求多个服务，结果合并，仅get
+
+ 网关不仅是做请求的转发--中间层，我的地盘听我的，我给你show一下
+ a  缓存---配置下就可以了
+ b  限流---限制单位时间内请求的数量--反爬虫&秒杀
+ c  熔断---家里保险丝过载就会熔断，全停，可以保护别人家正常的电流
+           A股，出现了超出平常的异动，直接停掉全部交易
+           达成某些条件后，接口将暂时不再提供服务
+    nuget--polly---AddPolly()
+ d  请求合并---上端请求一下，网关会请求多个服务，结果合并，仅get
+
+
+
+ 
+
