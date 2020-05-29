@@ -13,8 +13,9 @@
  ************************ Step2 启动多个实例*********************
  运行两个WebApi服务起来
  cd  路径--bin/debugs/3.0
- dotnet Ruanmou.NetCore3_0.DemoProject.dll --urls="http://*:5726" --ip="127.0.0.1" --port=5726
- dotnet Ruanmou.NetCore3_0.AdvancedDemo.dll --urls="http://*:5727" --ip="127.0.0.1" --port=5727
+ dotnet Cyf.NetCore.dll --urls="http://*:5726" --ip="127.0.0.1" --port=5726
+ dotnet Cyf.NetCore.dll --urls="http://*:5727" --ip="127.0.0.1" --port=5727
+ dotnet Cyf.OcelotGateway.dll --urls="http://*:9527" --ip="127.0.0.1" --port=9527
  即可查看http://localhost:8500有多个服务和心跳检测了
 
 

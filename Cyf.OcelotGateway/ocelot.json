@@ -13,13 +13,13 @@
       "FileCacheOptions": {
         "TtlSeconds": 10 //缓存 10s  仅对get请求生效，同地址就同结果
       },
-      //"RateLimitOptions": {
-      //  "ClientWhitelist": [], //白名单
-      //  "EnableRateLimiting": true,
-      //  "Period": "5m", //1s, 5m, 1h, 1d
-      //  "PeriodTimespan": 5, //多少秒之后客户端可以重试
-      //  "Limit": 5 //统计时间段内允许的最大请求数量
-      //},
+      "RateLimitOptions": {
+        "ClientWhitelist": [], //白名单
+        "EnableRateLimiting": true,
+        "Period": "5m", //1s, 5m, 1h, 1d
+        "PeriodTimespan": 5, //多少秒之后客户端可以重试
+        "Limit": 5 //统计时间段内允许的最大请求数量
+      },
       //"QoSOptions": {
       //  "ExceptionsAllowedBeforeBreaking": 3, //允许多少个异常请求
       //  "DurationOfBreak": 10000, // 熔断的时间，单位为ms
@@ -34,7 +34,14 @@
       "Port": 8500,
       //由Consul提供服务发现
       "Type": "Consul"
-    }
+    },
+
+    "RateLimitOptions": {
+      "DisableRateLimitHeaders": false,         //Http头  X-Rate-Limit 和 Retry-After 是否禁用
+      "QuotaExceededMessage": "Customize Tips!",//当请求过载被截断时返回的消息
+      "HttpStatusCode": 999,                    //当请求过载被截断时返回的http status
+      "ClientIdHeader": "Test"                  //用来识别客户端的请求头，默认是 ClientId
+    },
   }
 }
 
