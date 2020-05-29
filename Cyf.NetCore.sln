@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyf.EF.Interface", "Cyf.EF.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyf.OcelotGateway", "Cyf.OcelotGateway\Cyf.OcelotGateway.csproj", "{7C813A95-CAD9-411B-9DDA-EE06406CC1A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyf.AuthorizationServer", "Cyf.AuthorizationServer\Cyf.AuthorizationServer.csproj", "{02E56BE2-ACF2-4DD3-9BCF-3F24DD598D2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{7C813A95-CAD9-411B-9DDA-EE06406CC1A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C813A95-CAD9-411B-9DDA-EE06406CC1A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C813A95-CAD9-411B-9DDA-EE06406CC1A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02E56BE2-ACF2-4DD3-9BCF-3F24DD598D2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02E56BE2-ACF2-4DD3-9BCF-3F24DD598D2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02E56BE2-ACF2-4DD3-9BCF-3F24DD598D2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02E56BE2-ACF2-4DD3-9BCF-3F24DD598D2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
