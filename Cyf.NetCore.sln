@@ -23,13 +23,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyf.EF.Business", "Cyf.EF.B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyf.EF.Interface", "Cyf.EF.Interface\Cyf.EF.Interface.csproj", "{4889A404-6218-4481-978A-B0E4C884A8FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyf.OcelotGateway", "Cyf.OcelotGateway\Cyf.OcelotGateway.csproj", "{7C813A95-CAD9-411B-9DDA-EE06406CC1A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyf.OcelotGateway", "Cyf.OcelotGateway\Cyf.OcelotGateway.csproj", "{7C813A95-CAD9-411B-9DDA-EE06406CC1A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyf.AuthorizationServer", "Cyf.AuthorizationServer\Cyf.AuthorizationServer.csproj", "{02E56BE2-ACF2-4DD3-9BCF-3F24DD598D2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyf.AuthorizationServer", "Cyf.AuthorizationServer\Cyf.AuthorizationServer.csproj", "{02E56BE2-ACF2-4DD3-9BCF-3F24DD598D2E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicroService", "MicroService", "{B6CAA534-95CC-4149-8213-B6BE723A9F03}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyf.MicroService.Core", "Cyf.MicroService.Core\Cyf.MicroService.Core.csproj", "{016E0338-E375-404A-94F7-EEC978A1B040}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyf.MicroService.Test", "Cyf.MicroService.Test\Cyf.MicroService.Test.csproj", "{1739CF12-68D9-4FD5-B716-AC8EE746AF29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,10 @@ Global
 		{016E0338-E375-404A-94F7-EEC978A1B040}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{016E0338-E375-404A-94F7-EEC978A1B040}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{016E0338-E375-404A-94F7-EEC978A1B040}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1739CF12-68D9-4FD5-B716-AC8EE746AF29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1739CF12-68D9-4FD5-B716-AC8EE746AF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1739CF12-68D9-4FD5-B716-AC8EE746AF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1739CF12-68D9-4FD5-B716-AC8EE746AF29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +102,7 @@ Global
 		{AAEE5CD7-93A5-4120-BE11-36399EEF1178} = {73B6EFAE-866B-49D7-BE8D-169949F92EB3}
 		{4889A404-6218-4481-978A-B0E4C884A8FA} = {73B6EFAE-866B-49D7-BE8D-169949F92EB3}
 		{016E0338-E375-404A-94F7-EEC978A1B040} = {B6CAA534-95CC-4149-8213-B6BE723A9F03}
+		{1739CF12-68D9-4FD5-B716-AC8EE746AF29} = {B6CAA534-95CC-4149-8213-B6BE723A9F03}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7360B472-268F-4CFA-8242-3AF4FF786C67}
