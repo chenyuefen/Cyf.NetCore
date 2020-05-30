@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Cyf.AuthorizationServer.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,7 +26,13 @@ namespace Cyf.AuthorizationServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            InMemoryConfiguration.Configuration = this.Configuration;
+            services.AddIdentityServer()
+                .AddDeveloperSigningCredential()//临时证书，AddSigningCredential正式证书
+                .AddTestUsers(InMemoryConfiguration.GetUsers().ToList())//用户
+                .AddInMemoryClients(InMemoryConfiguration.GetClients())//客户端
+                .AddInMemoryApiResources(InMemoryConfiguration.GetApiResources());//那些接口
+            //services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,16 +43,18 @@ namespace Cyf.AuthorizationServer
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            app.UseIdentityServer();
 
-            app.UseRouting();
+            //app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            //app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            //app.UseAuthorization();
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllers();
+            //});
         }
     }
 }
