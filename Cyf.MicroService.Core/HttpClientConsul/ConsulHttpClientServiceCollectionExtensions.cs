@@ -20,7 +20,6 @@ namespace Cyf.MicroService.Core.HttpClientConsul
         /// <returns></returns>
         public static IServiceCollection AddHttpClientConsul<ConsulHttpClient>(this IServiceCollection services) where ConsulHttpClient : class
         {
-            services.AddHttpClient("consul");
 
             // 1、注册consul
             services.AddConsulDiscovery();
