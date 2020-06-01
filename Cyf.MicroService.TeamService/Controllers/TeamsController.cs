@@ -31,7 +31,7 @@ namespace Cyf.MicroService.TeamService.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Team>> GetTeams()
         {
-            Thread.Sleep(10000000);
+            //Thread.Sleep(10000000);
             // 1、演示宕机
             return teamService.GetTeams().ToList();
         }

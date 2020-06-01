@@ -44,16 +44,16 @@ namespace Cyf.MicroService.Core.HttpClientConsul
             ServiceUrl serviceUrl = loadBalance.Select(serviceUrls);
 
             // 3、建立请求
-            HttpClient httpClient = httpClientFactory.CreateClient("mrico");
+            HttpClient httpClient = httpClientFactory.CreateClient("consul");
             HttpResponseMessage response = await httpClient.GetAsync(serviceUrl.Url + serviceLink);
 
             // 3.1json转换成对象
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 string json = await response.Content.ReadAsStringAsync();
-
                 return JsonConvert.DeserializeObject<T>(json);
-            } else
+            } 
+            else
             {
                 throw new Exception($"{ServiceName}服务调用错误");
             }

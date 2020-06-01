@@ -13,11 +13,11 @@ namespace Cyf.MicroService.TeamService.Repositories
     /// </summary>
     public class TeamRepository : ITeamRepository
     {
-        public TeamContext teamContext;
-        public TeamRepository(TeamContext teamContext)
-        {
-            this.teamContext = teamContext;
-        }
+       // public TeamContext teamContext;
+        //public TeamRepository(TeamContext teamContext)
+        //{
+        //    this.teamContext = teamContext;
+        //}
         public void Create(Team team)
         {
             //teamContext.Teams.Add(team);

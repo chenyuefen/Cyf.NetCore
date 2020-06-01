@@ -33,9 +33,9 @@ namespace Cyf.MicroService.TeamService
         public void ConfigureServices(IServiceCollection services)
         {
             // 1、注册上下文到IOC容器
-            services.AddDbContext<TeamContext>(options => {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-            });
+            //services.AddDbContext<TeamContext>(options => {
+            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            //});
             // 2、注册团队service
             services.AddScoped<ITeamService, TeamServiceImpl>();
 

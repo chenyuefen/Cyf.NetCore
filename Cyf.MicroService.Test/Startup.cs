@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Cyf.MicroService.AggregateService.Services;
+using Cyf.MicroService.Core.HttpClientConsul;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +27,11 @@ namespace Cyf.MicroService.Test
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            // 1、注册Consul服务
+            services.AddHttpClientConsul<ConsulHttpClient>();
+            // 2、注册team服务
+            services.AddSingleton<ITeamServiceClient, HttpTeamServiceClient>();
             services.AddControllers();
         }
 

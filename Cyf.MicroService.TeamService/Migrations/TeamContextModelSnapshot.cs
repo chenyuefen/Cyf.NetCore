@@ -8,7 +8,7 @@ using Cyf.MicroService.TeamService.Context;
 
 namespace Cyf.MicroService.TeamService.Migrations
 {
-    [DbContext(typeof(TeamContext))]
+    //[DbContext(typeof(TeamContext))]
     partial class TeamContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

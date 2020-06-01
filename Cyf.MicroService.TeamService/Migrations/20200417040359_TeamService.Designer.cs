@@ -9,7 +9,7 @@ using Cyf.MicroService.TeamService.Context;
 
 namespace Cyf.MicroService.TeamService.Migrations
 {
-    [DbContext(typeof(TeamContext))]
+    //[DbContext(typeof(TeamContext))]
     [Migration("20200417040359_TeamService")]
     partial class TeamService
     {

@@ -17,6 +17,7 @@
  dotnet Cyf.NetCore.dll --urls="http://*:5727" --ip="127.0.0.1" --port=5727
  dotnet Cyf.OcelotGateway.dll --urls="http://*:9527" --ip="127.0.0.1" --port=9527
  即可查看http://localhost:8500有多个服务和心跳检测了
+  dotnet Cyf.MicroService.TeamService.dll --urls="http://*:5726" --ip="127.0.0.1" --port=5726
 
 
  ********************* 微服务架构 ****************************

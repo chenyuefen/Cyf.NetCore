@@ -4,5 +4,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cyf.MicroService.Core\Cyf.MicroService.Core.csproj" />
+  </ItemGroup>
+
 
 </Project>
