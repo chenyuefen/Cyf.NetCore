@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyf.MicroService.Core", "Cy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyf.MicroService.Test", "Cyf.MicroService.Test\Cyf.MicroService.Test.csproj", "{1739CF12-68D9-4FD5-B716-AC8EE746AF29}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyf.MicroService.TeamService", "Cyf.MicroService.TeamService\Cyf.MicroService.TeamService.csproj", "{1E2740F1-CE0C-49FF-9824-D639820F7341}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,10 @@ Global
 		{1739CF12-68D9-4FD5-B716-AC8EE746AF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1739CF12-68D9-4FD5-B716-AC8EE746AF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1739CF12-68D9-4FD5-B716-AC8EE746AF29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E2740F1-CE0C-49FF-9824-D639820F7341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E2740F1-CE0C-49FF-9824-D639820F7341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E2740F1-CE0C-49FF-9824-D639820F7341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E2740F1-CE0C-49FF-9824-D639820F7341}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +109,7 @@ Global
 		{4889A404-6218-4481-978A-B0E4C884A8FA} = {73B6EFAE-866B-49D7-BE8D-169949F92EB3}
 		{016E0338-E375-404A-94F7-EEC978A1B040} = {B6CAA534-95CC-4149-8213-B6BE723A9F03}
 		{1739CF12-68D9-4FD5-B716-AC8EE746AF29} = {B6CAA534-95CC-4149-8213-B6BE723A9F03}
+		{1E2740F1-CE0C-49FF-9824-D639820F7341} = {B6CAA534-95CC-4149-8213-B6BE723A9F03}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7360B472-268F-4CFA-8242-3AF4FF786C67}
