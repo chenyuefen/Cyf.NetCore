@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Cyf.MicroService.TeamService.Context;
 using Cyf.MicroService.TeamService.Models;
 using Cyf.MicroService.TeamService.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Cyf.MicroService.TeamService.Controllers
 {
@@ -17,6 +18,7 @@ namespace Cyf.MicroService.TeamService.Controllers
     /// 团队微服务api
     /// </summary>
     [Route("Teams")]
+    [Authorize] // 1、保护起来
     [ApiController]
     public class TeamsController : ControllerBase
     {

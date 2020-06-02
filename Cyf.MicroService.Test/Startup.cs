@@ -38,19 +38,19 @@ namespace Cyf.MicroService.Test
             };
 
             // 1.2 封装之后的调用PollyHttpClient
-            services.AddPollyHttpClient("consul", options =>
-            {
-                options.TimeoutTime = 1; // 1、超时时间
-                options.RetryCount = 3;// 2、重试次数
-                options.CircuitBreakerOpenFallCount = 2;// 3、熔断器开启(多少次失败开启)
-                options.CircuitBreakerDownTime = 100;// 4、熔断器开启时间
-                options.httpResponseMessage = fallbackResponse;// 5、降级处理
-            });
+            //services.AddPollyHttpClient("consul", options =>
+            //{
+            //    options.TimeoutTime = 1; // 1、超时时间
+            //    options.RetryCount = 3;// 2、重试次数
+            //    options.CircuitBreakerOpenFallCount = 2;// 3、熔断器开启(多少次失败开启)
+            //    options.CircuitBreakerDownTime = 100;// 4、熔断器开启时间
+            //    options.httpResponseMessage = fallbackResponse;// 5、降级处理
+            //});
 
-            // 1、注册Consul服务
-            services.AddHttpClientConsul<ConsulHttpClient>();
-            // 2、注册team服务
-            services.AddSingleton<ITeamServiceClient, HttpTeamServiceClient>();
+            //// 1、注册Consul服务
+            //services.AddHttpClientConsul<ConsulHttpClient>();
+            //// 2、注册team服务
+            //services.AddSingleton<ITeamServiceClient, HttpTeamServiceClient>();
             services.AddControllers();
         }
 

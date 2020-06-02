@@ -8,6 +8,49 @@ using System.Threading.Tasks;
 
 namespace Cyf.AuthorizationServer.Models
 {
+    /// <summary>
+    /// 1、Identity测试使用
+    /// </summary>
+    public class Config
+    {
+        /// <summary>
+        /// 1、微服务API资源
+        /// </summary>
+        /// <returns></returns>
+        public static IEnumerable<ApiResource> GetApiResources()
+        {
+            return new List<ApiResource>
+                {
+                    new ApiResource("TeamService", "TeamService api需要被保护")
+                };
+        }
+        /// <summary>
+        /// 2、客户端
+        /// </summary>
+        /// <returns></returns>
+        public static IEnumerable<Client> GetClients()
+        {
+            return new List<Client>
+            {
+                new Client
+                {
+                    ClientId = "client",
+    
+                    // 没有交互性用户，使用 clientid/secret 实现认证。
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+    
+                    // 用于认证的密码
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    // 客户端有权访问的范围（Scopes）
+                    AllowedScopes = { "TeamService" }
+                }
+            };
+        }
+    }
+
     public class InMemoryConfiguration
     {
         public static IConfiguration Configuration { get; set; }
