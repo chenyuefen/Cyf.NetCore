@@ -23,7 +23,7 @@
       "QoSOptions": {
         "ExceptionsAllowedBeforeBreaking": 3, //允许多少个异常请求
         "DurationOfBreak": 5, // 熔断的时间，单位为秒
-        "TimeoutValue": 10000 //如果下游请求的处理时间超过多少则自如将请求设置为超时 默认90秒
+        "TimeoutValue": 10000 //如果下游请求的处理时间超过多少则自如将请求设置为超时 默认90秒，单位为毫秒
       }
     }
   ],
