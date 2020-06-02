@@ -37,7 +37,8 @@ namespace Cyf.AuthorizationServer
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()// 1、用户登录配置
                 .AddInMemoryApiResources(Config.GetApiResources()) // 2、存储Api资源
-                .AddInMemoryClients(Config.GetClients()); // 3、存储客户端(模式)
+                .AddInMemoryClients(Config.GetClients()) // 3、存储客户端(模式)
+                .AddTestUsers(Config.GetUsers());
             services.AddControllers();
         }
 

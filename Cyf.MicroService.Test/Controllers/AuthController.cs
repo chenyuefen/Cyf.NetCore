@@ -48,25 +48,25 @@ namespace Cyf.MicroService.Test.Controllers
             {
                 Console.WriteLine($"[DiscoveryDocumentResponse Error]: {disco.Error}");
             }
-            // 1.1、通过客户端获取AccessToken
-            TokenResponse tokenResponse = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
-            {
-                Address = disco.TokenEndpoint, // 1、生成AccessToken中心
-                ClientId = "client", // 2、客户端编号
-                ClientSecret = "secret",// 3、客户端密码
-                Scope = "TeamService" // 4、客户端需要访问的API
-            });
-
-            // 1.2 通过客户端用户密码获取AccessToken
-            //TokenResponse tokenResponse = await client.RequestPasswordTokenAsync(new PasswordTokenRequest
+            //// 1.1、通过客户端获取AccessToken
+            //TokenResponse tokenResponse = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
             //{
-            //    Address = disco.TokenEndpoint,
-            //    ClientId = "client-password",
-            //    ClientSecret = "secret",
-            //    Scope = "TeamService",
-            //    UserName = "tony",
-            //    Password = "123456"
+            //    Address = disco.TokenEndpoint, // 1、生成AccessToken中心
+            //    ClientId = "client", // 2、客户端编号
+            //    ClientSecret = "secret",// 3、客户端密码
+            //    Scope = "TeamService" // 4、客户端需要访问的API
             //});
+
+            //1.2 通过客户端用户密码获取AccessToken
+            TokenResponse tokenResponse = await client.RequestPasswordTokenAsync(new PasswordTokenRequest
+            {
+                Address = disco.TokenEndpoint,
+                ClientId = "client-password",
+                ClientSecret = "secret",
+                Scope = "TeamService",
+                UserName = "tony",
+                Password = "123456"
+            });
 
             // 1.3 通过授权code获取AccessToken[需要进行登录]
             /* TokenResponse tokenResponse = await client.RequestAuthorizationCodeTokenAsync

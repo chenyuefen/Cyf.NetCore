@@ -46,6 +46,37 @@ namespace Cyf.AuthorizationServer.Models
                     },
                     // 客户端有权访问的范围（Scopes）
                     AllowedScopes = { "TeamService" }
+                },
+                new Client
+                {
+                    ClientId = "client-password",
+    	            // 使用用户名密码交互式验证
+    	            AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+    
+    	            // 用于认证的密码
+    	            ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+    	            // 客户端有权访问的范围（Scopes）
+    	            AllowedScopes = { "TeamService" }
+                },
+            };
+        }
+
+        /// <summary>
+        /// 客户端下面的用户
+        /// </summary>
+        /// <returns></returns>
+        public static List<TestUser> GetUsers()
+        {
+            return new List<TestUser>()
+            {
+                new TestUser
+                {
+                    SubjectId="1",
+                    Username="tony",
+                    Password="123456"
                 }
             };
         }
