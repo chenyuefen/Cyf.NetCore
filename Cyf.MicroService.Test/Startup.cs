@@ -77,7 +77,8 @@ namespace Cyf.MicroService.Test
                 options.Scope.Add("TeamService");
                 options.Scope.Add("offline_access");
             });
-            services.AddControllers();
+
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -87,22 +88,26 @@ namespace Cyf.MicroService.Test
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
             app.UseHttpsRedirection();
 
             // 1、增加样式
             app.UseStaticFiles();
 
             app.UseRouting();
-
-            // 2、添加身份认证
-            app.UseAuthentication(); 
-
+            app.UseAuthentication(); // 1、添加身份认证
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}").RequireAuthorization();
             });
         }
     }

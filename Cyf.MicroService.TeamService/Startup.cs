@@ -69,14 +69,15 @@ namespace Cyf.MicroService.TeamService
 
             app.UseHttpsRedirection();
 
-            // 1、使用身份验证	
-            app.UseAuthentication(); 
 
+            // 1、增加样式
+            app.UseStaticFiles();
             // 1、consul服务注册
             app.UseConsulRegistry();
 
             app.UseRouting();
-
+            // 1、使用身份验证	
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
