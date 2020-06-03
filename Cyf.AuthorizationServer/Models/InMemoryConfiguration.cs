@@ -1,9 +1,12 @@
-﻿using IdentityServer4.Models;
+﻿using IdentityModel;
+using IdentityServer4;
+using IdentityServer4.Models;
 using IdentityServer4.Test;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Cyf.AuthorizationServer.Models
@@ -61,6 +64,29 @@ namespace Cyf.AuthorizationServer.Models
     	            // 客户端有权访问的范围（Scopes）
     	            AllowedScopes = { "TeamService" }
                 },
+                // openid客户端
+                new Client
+                {
+                    ClientId="client-code",
+                    ClientSecrets={new Secret("secret".Sha256())},
+                    AllowedGrantTypes=GrantTypes.Code,
+                    RequireConsent=false,
+                    RequirePkce=true,
+
+                    RedirectUris={ "https://localhost:5006/signin-oidc"},//客户端地址
+
+                    PostLogoutRedirectUris={ "https://localhost:5006/signout-callback-oidc"},
+
+                    AllowedScopes=new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "TeamService" // 启用对刷新令牌的支持
+                    },
+
+                    // 增加授权访问
+                    AllowOfflineAccess=true
+                },
             };
         }
 
@@ -77,9 +103,28 @@ namespace Cyf.AuthorizationServer.Models
                     SubjectId="1",
                     Username="tony",
                     Password="123456"
+                },
+                // openid 身份验证
+                new TestUser{SubjectId = "818727", Username = "张三", Password = "123456",
+                    Claims =
+                    {
+                        new Claim(JwtClaimTypes.Name, "张三"),
+                        new Claim(JwtClaimTypes.GivenName, "三"),
+                        new Claim(JwtClaimTypes.FamilyName, "张"),
+                        new Claim(JwtClaimTypes.Email, "zhangsan@email.com"),
+                        new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
+                        new Claim(JwtClaimTypes.WebSite, "http://zhangsan.com"),
+                      //  new Claim(JwtClaimTypes.Address, @"{ '城市': '杭州', '邮政编码': '310000' }", IdentityServer4.IdentityServerConstants.ClaimValueTypes.Json)
+                    }
                 }
             };
         }
+
+        public static IEnumerable<IdentityResource> Ids => new List<IdentityResource>
+        {
+            new IdentityResources.OpenId(),
+            new IdentityResources.Profile()
+        };
     }
 
     public class InMemoryConfiguration
