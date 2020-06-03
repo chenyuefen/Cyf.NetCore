@@ -40,7 +40,7 @@ namespace Cyf.AuthorizationServer
                 .AddInMemoryClients(Config.GetClients()) // 3、存储客户端(模式)
                 .AddTestUsers(Config.GetUsers())// 4、添加登录用户(模式)
                 .AddInMemoryIdentityResources(Config.Ids); // 4、使用openid模式	;
-            services.AddControllers();
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,7 +72,7 @@ namespace Cyf.AuthorizationServer
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}").RequireAuthorization();
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
