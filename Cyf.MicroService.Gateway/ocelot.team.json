@@ -1,7 +1,7 @@
 {
   "ReRoutes": [
     {
-      "DownstreamPathTemplate": "/Teams",
+      "DownstreamPathTemplate": "/{teams}",
       "DownstreamScheme": "https",
       "ServiceName": "TeamService",
       "LoadBalancerOptions": {
@@ -19,7 +19,7 @@
         "DurationOfBreak": 5,
         "TimeoutValue": 1000
       },
-      "UpstreamPathTemplate": "/ocelot/teams",
+      "UpstreamPathTemplate": "/ocelot/{teams}",
       "UpstreamHttpMethod": [ "Get" ],
       "key": "teams"
     }
