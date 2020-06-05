@@ -1,0 +1,9 @@
+2020-05-26 16:52:28,328 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-05-26 16:52:28,362 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-05-26 16:52:28,376 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Users\CZCyf\Desktop\Code\Cyf.NetCore\Cyf.NetCore
+2020-05-26 16:52:44,076 [19] ERROR Cyf.NetCore.Controllers.SecondController - 这里是ILogger<SecondController> Error
+2020-05-26 16:52:44,081 [19] ERROR Cyf.NetCore.Controllers.SecondController - 这里是ILoggerFactory Error
+2020-05-26 16:52:44,084 [19] WARN  Cyf.NetCore.Controllers.SecondController - _ITestServiceA=46393766
+2020-05-26 16:52:44,090 [19] WARN  Cyf.NetCore.Controllers.SecondController - _ITestServiceB=66907542
+2020-05-26 16:52:44,093 [19] WARN  Cyf.NetCore.Controllers.SecondController - _ITestServiceC=50801819
+2020-05-26 16:52:44,097 [19] WARN  Cyf.NetCore.Controllers.SecondController - _ITestServiceD=21306714

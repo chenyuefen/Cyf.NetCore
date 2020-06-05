@@ -1,0 +1,4 @@
+2020-05-27 15:29:30,033 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2020-05-27 15:29:30,046 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Development
+2020-05-27 15:29:30,148 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\Users\CZCyf\Desktop\Code\Cyf.NetCore\Cyf.NetCore
+2020-05-27 15:29:44,853 [4] WARN  Cyf.NetCore.Controllers.ValuesController - ValuesController-Get 执行
