@@ -21,7 +21,12 @@
       },
       "UpstreamPathTemplate": "/ocelot/{teams}",
       "UpstreamHttpMethod": [ "Get" ],
-      "key": "teams"
+      "key": "teams",
+      //id4—È÷§
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotKey",
+        "AllowedScopes": [ "memberservice", "teamserver" ]
+      }
     }
   ],
   "GlobalConfiguration": {
@@ -37,4 +42,4 @@
       "ClientIdHeader": "Test"
     }
   }
- }
+}

@@ -46,7 +46,8 @@ namespace Cyf.MicroService.Test.Controllers
                     new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", accessToken);*/
 
                 // 2、使用token
-                var result = await client.GetStringAsync("https://localhost:5001/teams");
+                //var result = await client.GetStringAsync("https://localhost:5001/teams");
+                var result = await client.GetStringAsync("https://localhost:5004/TeamService/teams");// ==== https://localhost:5001/teams
 
                 // 3、响应结果到页面
                 return result;

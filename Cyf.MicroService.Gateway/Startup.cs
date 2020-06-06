@@ -13,15 +13,34 @@ using Ocelot.Middleware;
 using Ocelot.Provider.Consul;
 using Ocelot.Provider.Polly;
 using Cyf.MicroService.Gateway.OcelotExtension;
+using IdentityServer4.AccessTokenValidation;
+using Cyf.MicroService.Gateway.IdentityServer;
 
 namespace Cyf.MicroService.Gateway
 {
     public class Startup
     {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // 1、集成ids4
+            var identityServerOptions = new IdentityServerOptions();
+            Configuration.Bind("IdentityServerOptions", identityServerOptions);
+            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+                    .AddIdentityServerAuthentication(identityServerOptions.IdentityScheme, options =>
+                    {
+                        options.Authority = identityServerOptions.AuthorityAddress; // 1、授权中心地址
+                        options.ApiName = identityServerOptions.ResourceName; // 2、api名称(项目具体名称)
+                        options.RequireHttpsMetadata = false; // 3、https元数据，不需要
+                    });
+
             // 1、添加网关Ocelot到ioc容器
             services.AddOcelot().AddConsul().AddPolly();
         }

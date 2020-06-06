@@ -31,6 +31,7 @@ namespace Cyf.MicroService.Gateway
                               .AddJsonFile("appsettings.json", true, true)
                               .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
                               .AddOcelot(hostingContext.HostingEnvironment)
+                              //.AddJsonFile("ocelot_ids4.json", true, true) // ∂ØÃ¨¬∑”…≈‰÷√
                               .AddEnvironmentVariables();
                     });
                 });

@@ -34,12 +34,12 @@ namespace Cyf.MicroService.TeamService
         public void ConfigureServices(IServiceCollection services)
         {
             // 6、校验AccessToken,从身份校验中心进行校验
-            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
-                    .AddIdentityServerAuthentication(options => {
-                        options.Authority = "http://localhost:5005"; // 1、授权中心地址
-                        options.ApiName = "TeamService"; // 2、api名称(项目具体名称)
-                        options.RequireHttpsMetadata = false; // 3、https元数据，不需要
-                    });
+            //services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+            //        .AddIdentityServerAuthentication(options => {
+            //            options.Authority = "http://localhost:5005"; // 1、授权中心地址
+            //            options.ApiName = "TeamService"; // 2、api名称(项目具体名称)
+            //            options.RequireHttpsMetadata = false; // 3、https元数据，不需要
+            //        });
             // 1、注册上下文到IOC容器
             //services.AddDbContext<TeamContext>(options => {
             //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
@@ -77,7 +77,7 @@ namespace Cyf.MicroService.TeamService
 
             app.UseRouting();
             // 1、使用身份验证	
-            app.UseAuthentication();
+            //app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
