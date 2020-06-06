@@ -39,6 +39,11 @@ namespace Cyf.MicroService.Gateway
                         options.Authority = identityServerOptions.AuthorityAddress; // 1、授权中心地址
                         options.ApiName = identityServerOptions.ResourceName; // 2、api名称(项目具体名称)
                         options.RequireHttpsMetadata = false; // 3、https元数据，不需要
+                    }).AddIdentityServerAuthentication("TeamKey", options =>
+                    {
+                        options.Authority = identityServerOptions.AuthorityAddress; // 1、授权中心地址
+                        options.ApiName = "TeamService"; // 2、api名称(项目具体名称)
+                        options.RequireHttpsMetadata = false; // 3、https元数据，不需要
                     });
 
             // 1、添加网关Ocelot到ioc容器

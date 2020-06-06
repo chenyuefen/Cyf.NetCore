@@ -1,7 +1,7 @@
 {
   "ReRoutes": [
     {
-      "DownstreamPathTemplate": "/{teams}",
+      "DownstreamPathTemplate": "/teams",
       "DownstreamScheme": "https",
       "ServiceName": "TeamService",
       "LoadBalancerOptions": {
@@ -19,13 +19,13 @@
         "DurationOfBreak": 5,
         "TimeoutValue": 1000
       },
-      "UpstreamPathTemplate": "/ocelot/{teams}",
+      "UpstreamPathTemplate": "/ocelot/teams",
       "UpstreamHttpMethod": [ "Get" ],
       "key": "teams",
       //id4—È÷§
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "OcelotKey",
-        "AllowedScopes": [ "memberservice", "teamserver" ]
+        "AuthenticationProviderKey": "TeamKey",
+        "AllowedScopes": []
       }
     }
   ],
