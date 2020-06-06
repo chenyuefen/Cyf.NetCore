@@ -10,6 +10,9 @@ using Cyf.MicroService.TeamService.Context;
 using Cyf.MicroService.TeamService.Models;
 using Cyf.MicroService.TeamService.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Configuration;
+using AutoMapper.Configuration;
+using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace Cyf.MicroService.TeamService.Controllers
 {
@@ -23,10 +26,11 @@ namespace Cyf.MicroService.TeamService.Controllers
     public class TeamsController : ControllerBase
     {
         private readonly ITeamService teamService;
-
-        public TeamsController(ITeamService teamService)
+        private readonly IConfiguration configuration;
+        public TeamsController(ITeamService teamService, IConfiguration configuration)
         {
             this.teamService = teamService;
+            this.configuration = configuration;
         }
 
         // GET: api/Teams
@@ -35,6 +39,8 @@ namespace Cyf.MicroService.TeamService.Controllers
         {
             //Thread.Sleep(10000000);
             // 1、演示宕机
+            
+            Console.WriteLine($"查询团队信息:{configuration["test"]}");
             return teamService.GetTeams().ToList();
         }
 
