@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Helpers.WebHelper</AssemblyName>
+    <RootNamespace>Helpers</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Mongo\**" />
+    <Compile Remove="Repository\**" />
+    <Compile Remove="Service\**" />
+    <EmbeddedResource Remove="Mongo\**" />
+    <EmbeddedResource Remove="Repository\**" />
+    <EmbeddedResource Remove="Service\**" />
+    <None Remove="Mongo\**" />
+    <None Remove="Repository\**" />
+    <None Remove="Service\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="MongoConfigurationOptions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="IdentityServer4" Version="3.1.2" />
+    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="4.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="4.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="MongoDB.Driver" Version="2.10.4" />
+    <PackageReference Include="Polly" Version="7.2.1" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Helpers.MongoHelper\Helpers.MongoHelper.csproj" />
+  </ItemGroup>
+</Project>
