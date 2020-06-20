@@ -25,6 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Cyf.EF.MSSQL.Model\Cyf.EF.MSSQL.Model.csproj" />
     <ProjectReference Include="..\Cyf.EntityFramework.Model\Cyf.EF.MYSQL.Model.csproj" />
+    <ProjectReference Include="..\Cyf.Log4net\Cyf.Log4net.csproj" />
     <ProjectReference Include="..\Cyf.NetCore.Service\Cyf.NetCore.Service.csproj" />
   </ItemGroup>
 
