@@ -58,7 +58,7 @@ namespace Cyf.AuthorizationServer
                     options.ConfigureDbContext = builder =>
                     {
                         builder.UseSqlServer(connectionString, options =>
-                  options.MigrationsAssembly(migrationsAssembly));
+                            options.MigrationsAssembly(migrationsAssembly));
                     };
                 })
                 //.AddTestUsers(Config.GetUsers())

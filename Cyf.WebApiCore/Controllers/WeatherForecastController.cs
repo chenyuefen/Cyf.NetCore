@@ -23,6 +23,10 @@ namespace Cyf.WebApiCore.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Get注释
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
