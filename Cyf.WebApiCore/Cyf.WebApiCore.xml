@@ -4,6 +4,14 @@
         <name>Cyf.WebApiCore</name>
     </assembly>
     <members>
+        <member name="M:Cyf.WebApiCore.Controllers.AuthorizeController.Login(System.String,System.String)">
+            <summary>
+            获取token的
+            </summary>
+            <param name="name"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
         <member name="M:Cyf.WebApiCore.Controllers.WeatherForecastController.Get">
             <summary>
             Get注释

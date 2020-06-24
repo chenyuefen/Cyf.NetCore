@@ -29,6 +29,10 @@ namespace Cyf.WebApiCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // 1、集成jwt
+            var jwtOptions = new JWTOptions();
+            Configuration.Bind("JwtOptions", jwtOptions);
+            services.AddJWTExt(jwtOptions);
             #region 注册Swagger服务 
             services.AddApiVersionExt();
             services.AddSwaggerGenExt();
@@ -49,6 +53,8 @@ namespace Cyf.WebApiCore
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

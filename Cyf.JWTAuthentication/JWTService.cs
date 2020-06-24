@@ -37,7 +37,7 @@ namespace Cyf.JWTAuthentication
                //new Claim("Role","Administrator"),//传递其他信息  
                //new Claim("abc","abccc")
             };
-            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SecurityKey"]));
+            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtOptions:SecurityKey"]));
             SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             /**
              *  Claims (Payload)
@@ -51,8 +51,8 @@ namespace Cyf.JWTAuthentication
                 除了规定的字段外，可以包含其他任何 JSON 兼容的字段。
              * */
             var token = new JwtSecurityToken(
-                issuer: _configuration["issuer"],
-                audience: _configuration["audience"],
+                issuer: _configuration["JwtOptions:ValidIssuer"],
+                audience: _configuration["JwtOptions:ValidAudience"],
                 claims: claims,
                 expires: DateTime.Now.AddMinutes(5),//5分钟有效期
                 signingCredentials: creds);
