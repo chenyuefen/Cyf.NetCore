@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Cyf.Cors\Cyf.Cors.csproj" />
     <ProjectReference Include="..\Cyf.JWTAuthentication\Cyf.JWTAuthentication.csproj" />
     <ProjectReference Include="..\Cyf.Swagger\Cyf.Swagger.csproj" />
   </ItemGroup>

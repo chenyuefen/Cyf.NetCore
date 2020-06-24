@@ -81,6 +81,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyf.JWTAuthentication", "Cy
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cyf.Swagger", "Cyf.Swagger\Cyf.Swagger.csproj", "{272D5941-06DF-4DEE-9E8F-134554C03AD9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyf.Cors", "Cyf.Cors\Cyf.Cors.csproj", "{9247041B-41BF-44D6-AE3B-3E70B38E90A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -223,6 +225,10 @@ Global
 		{272D5941-06DF-4DEE-9E8F-134554C03AD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{272D5941-06DF-4DEE-9E8F-134554C03AD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{272D5941-06DF-4DEE-9E8F-134554C03AD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9247041B-41BF-44D6-AE3B-3E70B38E90A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9247041B-41BF-44D6-AE3B-3E70B38E90A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9247041B-41BF-44D6-AE3B-3E70B38E90A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9247041B-41BF-44D6-AE3B-3E70B38E90A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -257,6 +263,7 @@ Global
 		{553CE1A0-B5D5-4FD8-888B-DA6FB0831816} = {A65D29CB-09EB-4C16-96F6-F20C9772A401}
 		{FB3DEF15-F069-42F3-AA16-E3BD5FC438DA} = {A65D29CB-09EB-4C16-96F6-F20C9772A401}
 		{272D5941-06DF-4DEE-9E8F-134554C03AD9} = {A65D29CB-09EB-4C16-96F6-F20C9772A401}
+		{9247041B-41BF-44D6-AE3B-3E70B38E90A2} = {A65D29CB-09EB-4C16-96F6-F20C9772A401}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7360B472-268F-4CFA-8242-3AF4FF786C67}

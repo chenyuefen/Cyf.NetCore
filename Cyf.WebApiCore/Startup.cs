@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Cyf.JWTAuthentication;
+using Cyf.Cors;
 
 namespace Cyf.WebApiCore
 {
@@ -33,6 +34,8 @@ namespace Cyf.WebApiCore
             var jwtOptions = new JWTOptions();
             Configuration.Bind("JwtOptions", jwtOptions);
             services.AddJWTExt(jwtOptions);
+
+            services.AddCorsExt();
             #region 注册Swagger服务 
             services.AddApiVersionExt();
             services.AddSwaggerGenExt();
@@ -50,6 +53,7 @@ namespace Cyf.WebApiCore
             #region 使用Swagger中间件
             app.UseSwaggerExt(apiVersionDescriptionProvider);
             #endregion
+            app.UseCorsExt();
             app.UseHttpsRedirection();
 
             app.UseRouting();
