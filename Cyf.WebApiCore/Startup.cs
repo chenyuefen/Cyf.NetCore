@@ -15,6 +15,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Cyf.JWTAuthentication;
 using Cyf.Cors;
+using Cyf.WebApiCore.Extensions;
 
 namespace Cyf.WebApiCore
 {
@@ -33,14 +34,15 @@ namespace Cyf.WebApiCore
             // 1、集成jwt
             var jwtOptions = new JWTOptions();
             Configuration.Bind("JwtOptions", jwtOptions);
-            services.AddJWTExt(jwtOptions);
+            services.AddJwtBearerExt(jwtOptions);
 
             services.AddCorsExt();
             #region 注册Swagger服务 
             services.AddApiVersionExt();
             services.AddSwaggerGenExt();
             #endregion
-            services.AddControllers();
+            services.AddControllers()
+                .AddNewtonsoftJsonExt();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -8,9 +8,9 @@ using System.Text;
 
 namespace Cyf.JWTAuthentication
 {
-    public static class JWTExt
+    public static class JwtBearerExt
     {
-        public static IServiceCollection AddJWTExt(this IServiceCollection services, JWTOptions model)
+        public static IServiceCollection AddJwtBearerExt(this IServiceCollection services, JWTOptions model)
         {
             //1.Nuget引入程序包：Microsoft.AspNetCore.Authentication.JwtBearer 
             //services.AddAuthentication();//禁用
