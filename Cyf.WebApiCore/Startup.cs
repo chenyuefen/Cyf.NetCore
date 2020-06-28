@@ -31,7 +31,10 @@ namespace Cyf.WebApiCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // 1、集成jwt
+            //AddTransient瞬时模式：每次请求，都获取一个新的实例。即使同一个请求获取多次也会是不同的实例
+            //AddScoped：每次请求，都获取一个新的实例。同一个请求获取多次会得到相同的实例
+            //AddSingleton单例模式：每次都获取同一个实例
+
             var jwtOptions = new JWTOptions();
             Configuration.Bind("JwtOptions", jwtOptions);
             services.AddJwtBearerExt(jwtOptions);
