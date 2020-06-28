@@ -8,6 +8,8 @@ using Microsoft.Extensions.Logging;
 namespace Cyf.WebApiCore.Controllers
 {
     [ApiController]
+    [ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
