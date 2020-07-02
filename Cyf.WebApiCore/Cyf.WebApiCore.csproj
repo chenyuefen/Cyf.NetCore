@@ -2,10 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Users\CZCyf\Source\Repos\chenyuefen\Cyf.NetCore\Cyf.WebApiCore\Cyf.WebApiCore.xml</DocumentationFile>
+    <DocumentationFile>F:\C#Code\PraticeCode\Cyf.NetCore\Cyf.WebApiCore\Cyf.WebApiCore.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
