@@ -23,6 +23,7 @@
     <ProjectReference Include="..\Cyf.Cors\Cyf.Cors.csproj" />
     <ProjectReference Include="..\Cyf.JWTAuthentication\Cyf.JWTAuthentication.csproj" />
     <ProjectReference Include="..\Cyf.Swagger\Cyf.Swagger.csproj" />
+    <ProjectReference Include="..\Helpers\Helpers.Cache\Helpers.Caching.csproj" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

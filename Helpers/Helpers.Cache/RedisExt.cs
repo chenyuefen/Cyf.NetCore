@@ -14,6 +14,14 @@ namespace Helpers
         public static IServiceCollection AddCsRedisHelper(this IServiceCollection services, IConfiguration configuration)
         {
             var csredis = new CSRedis.CSRedisClient(configuration.GetConnectionString("csredis"));
+            //var csredis = new CSRedis.CSRedisClient(new Func<string, string>(s => "39.100.197.236:6380/6385"),
+            //    "39.100.197.236:6380,defaultDatabase=13,poolsize=50,ssl=false,writeBuffer=10240",
+            //    "39.100.197.236:6381,defaultDatabase=13,poolsize=50,ssl=false,writeBuffer=10240",
+            //    "39.100.197.236:6382,defaultDatabase=13,poolsize=50,ssl=false,writeBuffer=10240",
+            //    "39.100.197.236:6383,defaultDatabase=13,poolsize=50,ssl=false,writeBuffer=10240",
+            //    "39.100.197.236:6384,defaultDatabase=13,poolsize=50,ssl=false,writeBuffer=10240",
+            //    "39.100.197.236:6385,defaultDatabase=13,poolsize=50,ssl=false,writeBuffer=10240"
+            //    );
             RedisHelper.Initialization(csredis);
             return services;
         }
@@ -38,7 +46,7 @@ namespace Helpers
             return app;
         }
 
-        public static IServiceCollection AddCsRedisByEasyCaching(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddCsRedisByEasyCaching(this IServiceCollection services)
         {
             var provider = services.BuildServiceProvider();
             var csredis = provider.GetService<EasyCachingCSRedisClient>();

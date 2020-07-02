@@ -1,4 +1,5 @@
 ﻿using EasyCaching.Core;
+using EasyCaching.Core.Configurations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -28,6 +29,7 @@ namespace Helpers
                     options.UseCSRedis(config =>
                     {
                         config.DBConfig.ConnectionStrings = new List<string> { configuration.GetConnectionString("csredis") };
+                        //config.DBConfig.ConnectionStrings = new List<string> { "39.100.197.236:6380", "39.100.197.236:6381", "39.100.197.236:6382", "39.100.197.236:6383", "39.100.197.236:6384", "39.100.197.236:6385" };
                     }, "csredis");
                 });
             return services;

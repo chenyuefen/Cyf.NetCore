@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Cyf.JWTAuthentication;
 using Cyf.Cors;
 using Cyf.WebApiCore.Extensions;
+using Helpers;
 
 namespace Cyf.WebApiCore
 {
@@ -46,6 +47,10 @@ namespace Cyf.WebApiCore
             #endregion
             services.AddControllers()
                 .AddNewtonsoftJsonExt();
+
+            services.AddEasyCachingExt(Configuration);
+            //services.AddCsRedisByEasyCaching();
+            services.AddCsRedisHelper(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
