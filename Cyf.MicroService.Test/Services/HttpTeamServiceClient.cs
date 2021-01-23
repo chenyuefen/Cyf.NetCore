@@ -10,6 +10,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Cyf.MicroService.AggregateService.Services
 {
@@ -20,7 +21,7 @@ namespace Cyf.MicroService.AggregateService.Services
     {
         /*public readonly IServiceDiscovery serviceDiscovery;
         public readonly ILoadBalance loadBalance;*/
-        private readonly IHttpClientFactory httpClientFactory;
+        //private readonly IHttpClientFactory httpClientFactory;
         private readonly string ServiceSchme = "https";
         private readonly string ServiceName = "teamservice"; //服务名称
         private readonly string ServiceLink = "/Teams"; //服务名称
@@ -36,9 +37,9 @@ namespace Cyf.MicroService.AggregateService.Services
             this.consulHttpClient = consulHttpClient;
         }
 
-        public async Task<IList<Team>> GetTeams()
+        public async Task<ActionResult> GetTeams()
         {
-            List<Team> teams = await consulHttpClient.GetAsync<List<Team>>(ServiceSchme, ServiceName, ServiceLink);
+            ActionResult teams = await consulHttpClient.GetAsync<ActionResult>(ServiceSchme, ServiceName, ServiceLink);
             return teams;
         }
     }

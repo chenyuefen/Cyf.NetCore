@@ -43,30 +43,36 @@ namespace Cyf.AuthorizationServer
             //    .AddInMemoryIdentityResources(Config.Ids); // 4、使用openid模式	;
 
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
-            var connectionString = Configuration.GetConnectionString("CyfMSSQLConnection");
+            //var connectionString = Configuration.GetConnectionString("CyfMSSQLConnection");
+            var connectionString = Configuration.GetConnectionString("CyfMYSQLConnection");
             services.AddIdentityServer()
                 .AddConfigurationStore(options =>
                 {
                     options.ConfigureDbContext = builder =>
                     {
-                        builder.UseSqlServer(connectionString, options =>
-                             options.MigrationsAssembly(migrationsAssembly));
-                    };
+						//builder.UseSqlServer(connectionString, options =>
+						//     options.MigrationsAssembly(migrationsAssembly));
+						builder.UseMySQL(connectionString, options =>
+							 options.MigrationsAssembly(migrationsAssembly));
+					};
                 })
                 .AddOperationalStore(options =>
                 {
                     options.ConfigureDbContext = builder =>
                     {
-                        builder.UseSqlServer(connectionString, options =>
-                            options.MigrationsAssembly(migrationsAssembly));
-                    };
+						//builder.UseSqlServer(connectionString, options =>
+						//    options.MigrationsAssembly(migrationsAssembly));
+						builder.UseMySQL(connectionString, options =>
+							options.MigrationsAssembly(migrationsAssembly));
+					};
                 })
                 //.AddTestUsers(Config.GetUsers())
                 .AddDeveloperSigningCredential();
             // 2、用户相关的配置
             services.AddDbContext<IdentityServerUserDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("CyfMSSQLConnection"));
+                //options.UseSqlServer(Configuration.GetConnectionString("CyfMSSQLConnection"));
+                options.UseMySQL(Configuration.GetConnectionString("CyfMYSQLConnection"));
             });
             // 1.1 添加用户
             services.AddIdentity<IdentityUser, IdentityRole>(options => {
@@ -87,8 +93,8 @@ namespace Cyf.AuthorizationServer
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //InitializeDatabase(app);
-            //InitializeUserDatabase(app);
+            InitializeDatabase(app);
+            InitializeUserDatabase(app);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -163,25 +169,26 @@ namespace Cyf.AuthorizationServer
             {
                 var context = serviceScope.ServiceProvider.GetService<IdentityServerUserDbContext>();
                 context.Database.Migrate();
+
                 var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-                var identityUser = userManager.FindByNameAsync("tony").Result;
-                if (identityUser == null)
+                var idnetityUser = userManager.FindByNameAsync("tony1").Result;
+                if (idnetityUser == null)
                 {
-                    identityUser = new IdentityUser
+                    idnetityUser = new IdentityUser
                     {
-                        UserName = "zhangsan",
-                        Email = "zhangsan@email.com"
+                        UserName = "tony1",
+                        Email = "tony1@email.com"
                     };
-                    var result = userManager.CreateAsync(identityUser, "123456").Result;
+                    var result = userManager.CreateAsync(idnetityUser, "123456").Result;
                     if (!result.Succeeded)
                     {
                         throw new Exception(result.Errors.First().Description);
                     }
-                    result = userManager.AddClaimsAsync(identityUser, new Claim[] {
-                        new Claim(JwtClaimTypes.Name, "tony"),
-                        new Claim(JwtClaimTypes.GivenName, "tony"),
-                        new Claim(JwtClaimTypes.FamilyName, "tony"),
-                        new Claim(JwtClaimTypes.Email, "tony@email.com"),
+                    result = userManager.AddClaimsAsync(idnetityUser, new Claim[] {
+                        new Claim(JwtClaimTypes.Name, "tony1"),
+                        new Claim(JwtClaimTypes.GivenName, "tony1"),
+                        new Claim(JwtClaimTypes.FamilyName, "tony1"),
+                        new Claim(JwtClaimTypes.Email, "tony1@email.com"),
                         new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
                         new Claim(JwtClaimTypes.WebSite, "http://tony.com")
                     }).Result;

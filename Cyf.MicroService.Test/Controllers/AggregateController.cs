@@ -22,7 +22,7 @@ namespace Cyf.MicroService.Test.Controllers
 
         // GET: api/Aggregate
         [HttpGet]
-        public async Task<ActionResult<List<Team>>> Get()
+        public async Task<ActionResult> Get()
         {
             /*// 1、查询团队
             HttpClient httpClient = _httpClientFactory.CreateClient();
@@ -30,7 +30,7 @@ namespace Cyf.MicroService.Test.Controllers
             
             string json = await response.Content.ReadAsStringAsync();
             IList<Team> teams = JsonConvert.DeserializeObject<List<Team>>(json);*/
-            IList<Team> teams = await teamServiceClient.GetTeams();
+            return await teamServiceClient.GetTeams();
 
             /*// 2、查询团队成员
             foreach (var team in teams)
@@ -43,7 +43,7 @@ namespace Cyf.MicroService.Test.Controllers
                 team.Members = members;
             }*/
 
-            return Ok(teams);
+            //return Ok(teams);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Cyf.MicroService.TeamService.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,6 @@ namespace Cyf.MicroService.AggregateService.Services
         /// 服务调用
         /// </summary>
         /// <returns></returns>
-        Task<IList<Team>> GetTeams();
+        Task<ActionResult> GetTeams();
     }
 }
