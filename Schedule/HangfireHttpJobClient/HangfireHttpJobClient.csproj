@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Hangfire.HttpJob.Client" Version="1.1.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\BuildingBlocks\TM.Infrastructure\TM.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>

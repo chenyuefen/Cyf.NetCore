@@ -1,0 +1,3 @@
+﻿EF已完善支持使用
+组合dapper使用 可以参考 UnitOfWork 单元模式操作类
+已支持 DapperRepository或者 通过UnitOfWork的DbConnection自己编写sql

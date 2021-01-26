@@ -1,0 +1,34 @@
+using Newtonsoft.Json;
+using System;
+using System.Xml.Serialization;
+
+namespace TM.Core.Payment.Alipay.Domain
+{
+    /// <summary>
+    /// AlipayOpenPublicMatchuserFollowQueryModel Data Structure.
+    /// </summary>
+    [Serializable]
+    public class AlipayOpenPublicMatchuserFollowQueryModel : AlipayObject
+    {
+        /// <summary>
+        /// 身份证号码
+        /// </summary>
+        [JsonProperty("identity_card")]
+        [XmlElement("identity_card")]
+        public string IdentityCard { get; set; }
+
+        /// <summary>
+        /// 手机号码
+        /// </summary>
+        [JsonProperty("mobile_no")]
+        [XmlElement("mobile_no")]
+        public string MobileNo { get; set; }
+
+        /// <summary>
+        /// 支付宝用户id，2088开头的16位长度字符串
+        /// </summary>
+        [JsonProperty("user_id")]
+        [XmlElement("user_id")]
+        public string UserId { get; set; }
+    }
+}

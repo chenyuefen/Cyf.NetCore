@@ -1,0 +1,18 @@
+using Newtonsoft.Json;
+using System.Xml.Serialization;
+
+namespace TM.Core.Payment.Alipay.Response
+{
+    /// <summary>
+    /// KoubeiMarketingCampaignCrowdCreateResponse.
+    /// </summary>
+    public class KoubeiMarketingCampaignCrowdCreateResponse : AlipayResponse
+    {
+        /// <summary>
+        /// 返回的人群组的唯一标识
+        /// </summary>
+        [JsonProperty("crowd_group_id")]
+        [XmlElement("crowd_group_id")]
+        public string CrowdGroupId { get; set; }
+    }
+}
