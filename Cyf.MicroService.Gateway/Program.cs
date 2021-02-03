@@ -29,9 +29,9 @@ namespace Cyf.MicroService.Gateway
 
                         config.SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
                               .AddJsonFile("appsettings.json", true, true)
-                              .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
-                              .AddOcelot(hostingContext.HostingEnvironment)
-                              //.AddJsonFile("ocelot_ids4.json", true, true) // 动态路由配置
+                              //.AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
+                              //.AddOcelot(hostingContext.HostingEnvironment)
+                              .AddJsonFile("ocelot_ids4.json", true, true) // 动态路由配置
                               .AddEnvironmentVariables();
                     });
                 });

@@ -21,8 +21,6 @@ namespace Cyf.MicroService.TeamService.Controllers
     /// 团队微服务api
     /// </summary>
     [Route("Teams")]
-    //[Authorize] // 1、保护起来
-    [ApiController]
     public class TeamsController : ControllerBase
     {
         private readonly ITeamService teamService;

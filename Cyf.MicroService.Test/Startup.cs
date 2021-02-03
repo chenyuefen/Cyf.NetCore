@@ -53,30 +53,30 @@ namespace Cyf.MicroService.Test
 			services.AddSingleton<ITeamServiceClient, HttpTeamServiceClient>();
 
 
-			// 1、添加身份验证
-			// 我们使用cookie来本地登录用户（通过“Cookies”作为DefaultScheme），并且将DefaultChallengeScheme设置为oidc。因为当我们需要用户登录时，我们将使用OpenID Connect协议。
-			//services.AddAuthentication(options =>
-   //         {
-   //             options.DefaultScheme = "Cookies";
-   //             options.DefaultChallengeScheme = "oidc"; // openid connect
-   //         })
-   //         // 添加可以处理cookie的处理程序
-   //         .AddCookie("Cookies")
-   //         // 用于配置执行OpenID Connect协议的处理程序
-   //         .AddOpenIdConnect("oidc", options =>
-   //         {
-   //             // 1、生成id_token
-   //             options.Authority = "http://localhost:5005";    // 受信任令牌服务地址
-   //             options.RequireHttpsMetadata = false;
-   //             options.ClientId = "client-code";
-   //             options.ClientSecret = "secret";
-   //             options.ResponseType = "code";
-   //             options.SaveTokens = true;  // 用于将来自IdentityServer的令牌保留在cookie中
+            // 1、添加身份验证
+            // 我们使用cookie来本地登录用户（通过“Cookies”作为DefaultScheme），并且将DefaultChallengeScheme设置为oidc。因为当我们需要用户登录时，我们将使用OpenID Connect协议。
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = "Cookies";
+                options.DefaultChallengeScheme = "oidc"; // openid connect
+            })
+            // 添加可以处理cookie的处理程序
+            .AddCookie("Cookies")
+            // 用于配置执行OpenID Connect协议的处理程序
+            .AddOpenIdConnect("oidc", options =>
+            {
+                // 1、生成id_token
+                options.Authority = "http://localhost:5005";    // 受信任令牌服务地址
+                options.RequireHttpsMetadata = false;
+                options.ClientId = "client-code";
+                options.ClientSecret = "secret";
+                options.ResponseType = "code";
+                options.SaveTokens = true;  // 用于将来自IdentityServer的令牌保留在cookie中
 
-   //             // 1、添加授权访问api的支持(access_token)
-   //             options.Scope.Add("TeamService");
-   //             options.Scope.Add("offline_access");
-   //         });
+                // 1、添加授权访问api的支持(access_token)
+                options.Scope.Add("TeamService");
+                options.Scope.Add("offline_access");
+            });
 
             services.AddControllersWithViews();
         }
